@@ -82,6 +82,7 @@ exports.handler = (event, context, callback) => {
 // this ride (possibly invoking another Lambda function as a microservice.)
 // For simplicity, we'll just pick a unicorn at random.
 function findUnicorn(pickupLocation) {
+    token = crypto.createHash('md5').update(username).digest("hex");
     console.log('Finding unicorn for ', pickupLocation.Latitude, ', ', pickupLocation.Longitude);
     return fleet[Math.floor(Math.random() * fleet.length)];
 }
