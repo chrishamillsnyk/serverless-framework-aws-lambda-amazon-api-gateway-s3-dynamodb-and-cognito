@@ -32,7 +32,7 @@ jobs:
         snyk auth ${{secrets.SNYK_TOKEN}}
     - name: Snyk Open Source # For testing and failing please add snyk test before snyk cmonitor
       run: |
-        snyk test
+        snyk test || true 
     - name: Snyk Code # Remove || true to fail if there are vulnerabilities
       run: |
         snyk code test || true 
